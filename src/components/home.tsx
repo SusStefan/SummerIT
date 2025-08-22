@@ -2,7 +2,7 @@ import { Button } from "../UI/Button"
 
 const home = () => {
   return (
-       <div className="flex flex-col min-h-screen bg-black">
+       <div className="flex flex-col min-h-screen bg-[#0f0f0f]">
       <div className="w-full h-[50vh] flex items-center justify-center bg-gradient-to-tr from-blue-600 to-purple-600">
         <h1 className="text-7xl font-bold text-center text-fuchsia-200 px-4">
           Salut! Bine ai venit pe pagina principala! Ce se "mananca" azi?

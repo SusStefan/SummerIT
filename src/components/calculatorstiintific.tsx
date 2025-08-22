@@ -198,13 +198,13 @@ const calculatorstiintific = () => {
     </Button>
     </div>
 
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#000000]">
-        <div className='bg-[#400080]  rounded-lg shadow-lg h-[700px] w-[600px] p-6'>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[#0f0f0f]">
+        <div className='bg-[#2f2f2e]  rounded-lg shadow-lg h-[700px] w-[600px] p-6'>
           <div>
-            <div className='bg-[#26004d] text-white rounded-lg p-4 mb-4 h-[100px] flex items-center justify-end text-right text-3xl'>
+            <div className='bg-[#161b27] text-white rounded-lg p-4 mb-4 h-[100px] flex items-center justify-end text-right text-3xl'>
               <input className='allign-right w-full h-full bg-transparent outline-none text-right ' type="text" value={displayValue} readOnly />
             </div>
-            <div className='bg-[#26004d] text-white rounded-lg p-4 h-[540px] flex items-center justify-center text-center text-xl'>
+            <div className='bg-[#161b27] text-white rounded-lg p-4 h-[540px] flex items-center justify-center text-center text-xl'>
               <div className='grid grid-cols-6 gap-1 flex items-center justify-center h-full w-full '>
                 <Keyboard className='bg-[#4a4a4a] hover:bg-[#262626] text-white rounded-lg p-3' onClick={Sinus}>sin</Keyboard>
                 <Keyboard className='bg-[#4a4a4a] hover:bg-[#262626] text-white rounded-lg p-3' onClick={Cosinus}>cos</Keyboard>

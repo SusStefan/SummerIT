@@ -133,8 +133,8 @@ const weatherAPP = () => {
     return (
         <>
          
-            <div className="flex flex-col bg-[#400080] min-h-screen">
-                <div className="flex flex-col justify-self-start bg-[#26004d] ">
+            <div className="flex flex-col bg-[#0f0f0f] min-h-screen">
+                <div className="flex flex-col justify-self-start bg-[#2f2f2e]  ">
                     <div className='flex flex-row justify-between p-4'>
                         <Button onClick={() => window.location.href = '/'}>
           <h1 className="text-2xl font-bold mb-4 text-center">Inapoi</h1>
