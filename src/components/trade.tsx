@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import AsyncSelect from 'react-select/async';
 import type { SingleValue } from 'react-select';
 import rawCities from 'cities.json';
-import { FaWind } from "react-icons/fa6"
+import { FaMoneyBill } from "react-icons/fa6"
 import { IoSpeedometer } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
 import { Button } from "../UI/Button"
+
 const cities = rawCities as RawCity[];
 type RawCity = {
     name: string;
@@ -166,9 +167,9 @@ const Trade= () => {
                     <div className='flex flex-row text-sm p-4'>
                         <div className='flex flex-col items-center justify-center w-1/3 px-4 mx-4 bg-[#E5E7EB]
 rounded-lg'>
-                            <FaWind className='m-2 w-6 h-6 ' />
+                            <FaMoneyBill className='m-2 w-6 h-6 ' />
                             <div>
-                                Wind
+                                Money
                             </div>
                             <div>
                                 {weatherData ? weatherData.current.wind_kph + ' km/h' : ''}

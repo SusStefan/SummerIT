@@ -53,11 +53,11 @@ app.get('/crypto-price',async (req,res) =>{
     const currencyParam = currency || 'usd';
     console.log(`Vrem sa aflam pretul ${coinParam} in ${currencyParam}`);
     try{
-        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price',{
+        const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets',{
             params:
             {
                 ids: coinParam,
-                vs_currencies: currencyParam
+                vs_currency: currencyParam
             },
             headers: {
                 'Accept': 'application/json',
@@ -72,7 +72,6 @@ app.get('/crypto-price',async (req,res) =>{
         console.log("EROARE: Nu s-au putut apela datele: "+error.message);
     }
 });
-
 
 app.listen(PORT,() => {
     console.log(`Serverul ruleaza pe http://localhost:${PORT}/weather \n sau \n http://localhost:${PORT}/crypto-price?coin=bitcoin,ethereum&currency=usd`);
