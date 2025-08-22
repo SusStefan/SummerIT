@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/home";
 import Calculator from "../components/calculator";
 import Calculatorstiintific from "../components/calculatorstiintific";
+import WeatherAPP from "../components/weatherAPP";
 export const Allroutes = createBrowserRouter([
     {
         path: "/",
@@ -12,5 +13,8 @@ export const Allroutes = createBrowserRouter([
     },{
         path:"/calculatorstiintific",
         element: <Calculatorstiintific />
+    },{
+        path:"/weather_app_example",
+        element: <WeatherAPP />
     }
 ])

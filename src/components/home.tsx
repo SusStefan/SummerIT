@@ -15,6 +15,9 @@ const home = () => {
         <Button onClick={() => window.location.href = '/calculatorstiintific'}>
           <h1 className="text-2xl font-bold mb-4 text-center">Calculator Stiintific</h1>
         </Button>
+        <Button onClick={() => window.location.href = '/weather_app_example'}>
+          <h1 className="text-2xl font-bold mb-4 text-center">Aplicatie Vreme</h1>
+        </Button>
       </div>
     </div>
     
