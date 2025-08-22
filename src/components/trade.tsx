@@ -70,7 +70,7 @@ function getDate() {
 
 }
 
-const weatherAPP = () => {
+const Trade= () => {
     const [weatherData, setWeatherData] = useState<any>(null);
     const [forecastData, setForecastData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
@@ -222,4 +222,4 @@ rounded-lg'>
         </>
     )
 }
-export default weatherAPP
+export default Trade

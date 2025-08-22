@@ -9,9 +9,10 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(cors());
 
+// PENTRU VREME
+
 app.get('/weather',async (req,res) =>{
     const {latitudine,longitudine,oras} = req.query;
-    const key = process.env.key;
     let queryParam = ''
     if(latitudine && longitudine)
     {
@@ -43,6 +44,36 @@ app.get('/weather',async (req,res) =>{
     }
 });
 
+// PENTRU STOCK & CRYPTO
+
+app.get('/crypto-price',async (req,res) =>{
+    const {coin,currency} = req.query;
+    const apikey = process.env.keycripto;
+    const coinParam = coin || 'bitcoin';
+    const currencyParam = currency || 'usd';
+    console.log(`Vrem sa aflam pretul ${coinParam} in ${currencyParam}`);
+    try{
+        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price',{
+            params:
+            {
+                ids: coinParam,
+                vs_currencies: currencyParam
+            },
+            headers: {
+                'Accept': 'application/json',
+                'x-cg-demo-api-key': apikey
+            }
+        });
+        res.json(response.data);
+    }
+    catch(error)
+    {
+        res.status(500).json({error: "Am ESUAT in a se apela datele despre stocuri"});
+        console.log("EROARE: Nu s-au putut apela datele: "+error.message);
+    }
+});
+
+
 app.listen(PORT,() => {
-    console.log(`Serverul ruleaza pe http://localhost:${PORT}/weather`);
+    console.log(`Serverul ruleaza pe http://localhost:${PORT}/weather \n sau \n http://localhost:${PORT}/crypto-price?coin=bitcoin,ethereum&currency=usd`);
 })

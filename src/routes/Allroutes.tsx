@@ -3,6 +3,7 @@ import Home from "../components/home";
 import Calculator from "../components/calculator";
 import Calculatorstiintific from "../components/calculatorstiintific";
 import WeatherAPP from "../components/weatherAPP";
+import Trade from "../components/trade";
 export const Allroutes = createBrowserRouter([
     {
         path: "/",
@@ -16,5 +17,8 @@ export const Allroutes = createBrowserRouter([
     },{
         path:"/weather_app_example",
         element: <WeatherAPP />
+    },{
+        path:"/trade",
+        element: <Trade />
     }
 ])
