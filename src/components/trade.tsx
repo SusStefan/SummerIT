@@ -14,6 +14,8 @@ import {
 } from "react-icons/fa6";
 import { Button } from "../UI/Button";
 
+
+
 type SelectCoin = {
   label: string; // shown in dropdown
   value: string; // coin id (e.g., "bitcoin")
@@ -42,9 +44,9 @@ type CryptoData = {
 
 export default function Trade() {
   const [selected, setSelected] = useState<SelectCoin | null>(null);
+
   const [coins, setCoins] = useState<SelectCoin[]>([]);
   const [crypto, setCrypto] = useState<CryptoData | null>(null);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Fetch top 100 coins on mount
@@ -76,7 +78,7 @@ export default function Trade() {
 
     const fetchCoinData = async () => {
       try {
-        setLoading(true);
+       
         setError(null);
 
         const resp = await fetch(
@@ -94,13 +96,13 @@ export default function Trade() {
         console.error("Error fetching coin data:", err);
         setError("Failed to load coin data.");
         setCrypto(null);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchCoinData();
   }, [selected]);
+
+ 
 
   // Filter coins for AsyncSelect
   const loadOptions = (input: string, callback: (options: SelectCoin[]) => void) => {
@@ -119,9 +121,9 @@ export default function Trade() {
       <div className="flex flex-col justify-self-start bg-[#0f0f0f]">
         <div className="flex flex-row justify-between p-4">
           <Button onClick={() => (window.location.href = "/")}>
-            <h1 className="text-2xl font-bold mb-4 text-center">Inapoi</h1>
+            <h1 className="text-xl font-bold mb-4 text-center">Inapoi</h1>
           </Button>
-
+      
           <AsyncSelect<SelectCoin, false>
             cacheOptions
             defaultOptions={coins}
@@ -140,26 +142,6 @@ export default function Trade() {
                 `px-4 py-2 cursor-pointer ${isFocused ? "bg-blue-100" : ""}`,
             }}
           />
-
-           <AsyncSelect<SelectCoin, false>
-            cacheOptions
-            defaultOptions={coins}
-            loadOptions={loadOptions}
-            onChange={handleChange}
-            value={selected}
-            placeholder="Select the currency"
-            isClearable
-            classNames={{
-              control: () =>
-                "border border-gray-300 overflow-hidden text-sm rounded p-2 bg-white",
-              input: () => "text-sm",
-              menu: () =>
-                "bg-white border border-gray-300 mt-1 rounded shadow-lg",
-              option: ({ isFocused }) =>
-                `px-4 py-2 cursor-pointer ${isFocused ? "bg-blue-100" : ""}`,
-            }}
-          />
-
           <Button onClick={() => (window.location.href = "/")}>
             <h1 className="text-2xl font-bold mb-4 text-center">Calculate</h1>
           </Button>
@@ -169,9 +151,8 @@ export default function Trade() {
       <div className="flex flex-row text-sm p-4 gap-4">
         {/* Left big box */}
         <div className="flex flex-col items-center justify-center w-1/2 h-[calc(100vh-150px)] px-4 bg-[#E5E7EB] rounded-lg">
-          {loading && <div>Loading…</div>}
-          {!loading && !crypto && <div className="text-gray-600">Pick a coin</div>}
-          {!loading && crypto && (
+          {!crypto && <div className="text-gray-600">Pick a coin</div>}
+          {crypto && (
             <div className="flex items-center gap-3">
               <img src={crypto.image} alt={crypto.name} className="w-10 h-10" />
               <div className="text-xl font-semibold">
